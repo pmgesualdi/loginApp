@@ -1,8 +1,10 @@
+import React from 'react';
 import {createStackNavigator, createBottomTabNavigator, createAppContainer} from 'react-navigation';
 import Login from './src/components/Login';
 import Home from './src/components/Home';
 import Details from './src/components/Details';
 import { fromRight } from 'react-navigation-transitions';
+import { Root } from 'native-base';
 
 const TabNavigator = createBottomTabNavigator(
   {
@@ -26,6 +28,9 @@ const MainNavigator = createStackNavigator(
   }
 );
 
-const App = createAppContainer(MainNavigator);
+const AppContainer = createAppContainer(MainNavigator);
 
-export default App;
+export default () =>
+  <Root>
+    <AppContainer />
+  </Root>;
