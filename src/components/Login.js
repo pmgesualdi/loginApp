@@ -30,7 +30,7 @@ export default class LoginForm extends Component<Props> {
     }
     // Serialize and post the data
     const json = JSON.stringify(data);
-    fetch('http://192.168.0.252:8000/api/v1/login', {
+    fetch(Config.API_URL_LOGIN, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ export default class LoginForm extends Component<Props> {
         toaster.showToast(json.error, 'danger');
       } else {
         this.storeUser(json.data);
-        this.props.navigation.navigate('Home');
+        this.props.navigation.navigate('Profile');
       }
     })
     .catch((error) => {

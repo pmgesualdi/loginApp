@@ -1,22 +1,14 @@
 import React from 'react';
 import {createStackNavigator, createBottomTabNavigator, createAppContainer} from 'react-navigation';
 import Login from './src/components/Login';
-import Home from './src/components/Home';
-import Details from './src/components/Details';
+import Drawer from './src/navigation/Drawer';
 import { fromRight } from 'react-navigation-transitions';
 import { Root } from 'native-base';
-
-const TabNavigator = createBottomTabNavigator(
-  {
-    Home: Home,
-    Details: Details
-  }
-)
 
 const MainNavigator = createStackNavigator(
   {
     Login: {screen: Login},
-    Profile: {screen: TabNavigator}
+    Profile: {screen: Drawer}
   },
   {
       initialRouteName: 'Login',
